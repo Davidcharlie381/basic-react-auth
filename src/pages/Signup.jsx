@@ -3,12 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import { simNetReq } from "../utils/loader";
 import { getFromLocal } from "../utils/storage";
+import { useContext } from "react";
+import { UserContext } from "../App";
 
-const Signup = ({ setUser }) => {
+const Signup = () => {
   const [fName, setfName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const [, setUser] = useContext(UserContext);
 
   const btnRef = useRef();
   const formRef = useRef();
@@ -25,9 +29,8 @@ const Signup = ({ setUser }) => {
         navigate("/login");
       } else {
         setUser({ firstName: fName, userName, email });
-
         setIsLoading(false);
-        btnRef.current.setAttribute("disabled", "false");
+        btnRef.current.removeAttribute("disabled");
         navigate("/dashboard");
       }
     }, simNetReq() * 1000);

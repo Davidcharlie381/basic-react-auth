@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="bg-gray-200 h-screen flex flex-col pt-24 items-center">
-      {/* <Loader /> */}
       <h1 className="text-center text-3xl font-semibold pt-12">
         Welcome to AnyApp
       </h1>
@@ -23,7 +22,12 @@ const Home = () => {
           Sign up
         </Link>
       </div>
-      <Link to="dashboard" className="mx-auto flex justify-center mt-12 underline text-indigo-400">Go to my dashboard</Link>
+      <Link
+        to="dashboard"
+        className="mx-auto flex justify-center mt-12 underline text-indigo-400"
+      >
+        Go to my dashboard
+      </Link>
     </div>
   );
 };

@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { saveToLocal } from "../utils/storage";
+import { useContext } from "react";
+import { UserContext } from "../App";
 
-const Dashboard = ({ user, setUser }) => {
+const Dashboard = () => {
+
+  const [user, setUser] = useContext(UserContext);
+
   if (!user) {
     return <Navigate to="/login" />;
   }
